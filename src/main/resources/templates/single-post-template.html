@@ -30,6 +30,18 @@
             </section>
         </main>
     </div>
+    <div class="hashtags-flex"></div>
+    <div class="hashtags" th:each="thing: ${post.hashtags}">
+        <a class="hashtag-name" th:href="'/hashtags/' + ${thing.id}" th:text="${thing.hashtagName}"></a>
+    </div>
+        <div>
+        <form th:action="'/posts/' + ${post.id} + '/addHashtag'" method="post">
+            <label for="hashtagName">Add Hashtag: #</label>
+            <input type="text" id="hashtagName" name="hashtag">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
 
 </body>
 
