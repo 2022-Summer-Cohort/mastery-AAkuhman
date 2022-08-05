@@ -6,6 +6,7 @@ import java.util.Collection;
 
 @Entity
 public class Post {
+    private String author;
     @Id
     @GeneratedValue
 
@@ -22,12 +23,18 @@ public class Post {
     protected Post() {
     }
 
-    public Post(String title, Topic topic, String content,Hashtag...hashtags) {
+    public Post(String title, String author, Topic topic, String content,Hashtag...hashtags) {
         this.title = title;
         this.topic = topic;
         this.content = content;
         this.hashtags = Arrays.asList(hashtags);
+        this.author = author;
     }
+
+    public String getAuthor() {
+        return author;
+    }
+
     public void addHashtag(Hashtag hashtag) { hashtags.add(hashtag); }
     public Long getId() {
         return id;
@@ -80,4 +87,6 @@ public class Post {
         result = 31 * result + (content != null ? content.hashCode() : 0);
         return result;
     }
+
+
 }

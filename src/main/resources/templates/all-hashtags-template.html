@@ -22,5 +22,17 @@
         </nav>
     </header>
     <main class="main-content">
-        <p class="welcome">Welcome to Surviving Coding Boot Camp, a blog dedicated to helping you get through boot camp and on to the
-            other side.</p
+        <div class="title-flex">
+            <h1>Hashtags</h1>
+        </div>
+        <div class="hashtags-flex">
+            <ul>
+                <li th:each="hashtag: ${hashtags}">
+                    <a class="hashtag-name" th:href="'/hashtags/' + ${hashtag.id}" th:text="${hashtag.hashtagName}"></a>
+            </ul>
+        </div>
+    </main>
+</div>
+
+</body>
+</html>
